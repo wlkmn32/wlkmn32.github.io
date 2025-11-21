@@ -1,286 +1,216 @@
+/* --- 1. SETUP & VARIABLES --- */
 :root {
-    --white: #fbf1c7;
-    --black: #282828;
-    --yellow: #fabd2f;
-    --green: #b8bb26;
-    --red: #fb4934;
-    --blue: #458588;
-    --white-alt: #ebdbb2;
-    --black-alt: #3c3836;
-    --bg-color: var(--white);
-    --fg-color: var(--black);
-    --accent-color: var(--yellow);
-    --surface-color: var(--white-alt);
-    background-color: var(--bg-color);
+    /* Color Scheme from Image */
+    --bg-01: #282828;
+    --bg-02: #3c3836;
+    --fg-01: #fbf1c7; /* Cream Text */
+    --fg-02: #d5c4a1; /* Beige Text */
+    --ac-01: #fabd2f; /* Yellow Accent */
+    --ac-02: #cc241d; /* Red Accent */
+    background-color: var(--bg-01);
+    color: var(--fg-01);
+    /* Translucent Background (60% opacity of #282828) */
+    --bg-01-tr: rgba(40, 40, 40, 0.85);
 }
-.red {
-    color: var(--red);
-    fill: var(--red);
+
+@import url("https://fonts.googleapis.com/css?family=Stack%20Sans%20Headline:700|Geist:400");
+
+body {
+    font-family: "Geist";
+    font-weight: 400;
 }
-.green {
-    color: var(--green);
-    fill: var(--green);
+
+h1,
+h2 {
+    font-family: "Stack Sans Headline";
+
+    font-weight: 700;
 }
-.blue {
-    color: var(--blue);
-    fill: var(--blue);
+
+h3 {
+    font-family: "Stack Sans Headline";
+
+    font-weight: 600;
 }
-.yellow {
-    color: var(--yellow);
-    fill: var(--yellow);
+
+h4,
+h5 {
+    font-family: "Stack Sans Headline";
+
+    font-weight: 400;
 }
-* {
-    fill: var(--fg-color);
-    color: var(--fg-color);
-}
-/*dark mode*/
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: var(--black);
-        --fg-color: var(--white-alt);
-        --accent-color: var(--yellow);
-        --surface-color: var(--black-alt);
-    }
-}
-body,
+
 html {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    overflow: hidden;
-    font-family: Inter;
-    box-sizing: border-box;
+    font-size: 100%;
+} /* 16px */
+
+h1 {
+    font-size: 4.21rem; /* 67.36px */
 }
-/*loading page covering entire screen*/
-#loading {
-    position: fixed;
+
+h2 {
+    font-size: 3.158rem; /* 50.56px */
+}
+
+h3 {
+    font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+    font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+    font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+    font-size: 0.75rem; /* 12px */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--ac-01);
+}
+
+/* --- 3. LAYOUT UTILS --- */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- 4. HEADER / NAV --- */
+.sticky-header {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
+    z-index: 1000;
+    /* Translucent background effect matching bg-01-tr */
+    background-color: var(--bg-01-tr);
+    backdrop-filter: blur(10px); /* Adds the blur effect behind header */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 0;
+}
+
+.header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    padding-top: 0.5rem;
+}
+
+.nav-links a {
+    font-family: "Geist", sans-serif;
+    font-size: 1rem;
+    color: var(--fg-02);
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: var(--fg-01);
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: var(--ac-01);
+    text-decoration-thickness: 2px;
+}
+
+/* Logo Styling */
+.logo {
+    text-align: right;
+    line-height: 0.9;
+    font-family: "Stack Sans Headline";
+    font-size: 1.333rem; /* 21.28px */
+    font-weight: 700;
+    color: var(--fg-01);
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 5. MAIN CONTENT --- */
+.aboutme {
+    min-height: 100vh;
+    padding-top: 12vh;
+}
+
+.content-text p {
+    margin-bottom: 1.5rem;
+    text-align: justify; /* Justified text like in the video */
+    color: var(--fg-02);
+}
+
+/* --- 6. FOOTER --- */
+.footer {
+    position: sticky;
+    bottom: 0;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    border-top: 1px solid var(--bg-02);
+    background-color: var(--bg-01-tr);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    height: 100%;
-    font-size: 10dvw;
-    background-color: var(--bg-color);
-    z-index: 9999;
-}
-.hide {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
 }
 
-/*Pages Styles*/
-.parent {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+.social-links {
+    display: flex;
+    gap: 1.5rem;
 }
 
-/* Hide scrollbar but keep functionality */
-.parent::-webkit-scrollbar {
+.social-links a {
+    color: var(--ac-01); /* Yellow Accent for links */
+    border-bottom: 1px solid transparent;
+}
+
+.social-links a:hover {
+    border-bottom: 1px solid var(--ac-01);
+}
+
+.copyright {
+    color: var(--bg-02); /* Darker text for copyright */
+}
+.copyright small {
+    color: var(--fg-02);
+    opacity: 0.5;
+}
+.mobile {
     display: none;
 }
-.parent {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-.page {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    flex: 1;
-    overflow-y: unset;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0;
-    line-height: 0.85;
-    height: 100dvh;
-    width: 100dvw;
-}
-
-.page-content {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100dvh;
-    display: flex;
-    margin: 0;
-}
-
-/* Navigation indicator */
-.nav-indicator {
-}
-
-.nav-dot {
-    position: fixed;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform: scale(1.3);
-}
-.nav-dot.nav-up {
-    bottom: 1vh;
-    right: 1vw;
-}
-.nav-dot.nav-down {
-    transform: translateY(50%);
-
-    top: 1vh;
-    right: 1vw;
-}
-
-.nav-dot.active {
-    background: white;
-    opacity: 0;
-    transform: scale(1);
-}
-.captions {
-    position: absolute;
-    font-size: 0.6rem;
-    font-weight: 200;
-    top: 0rem;
-    left: 0.6rem;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-/*Scroll Hint Styles*/
-.scroll-hint {
-    position: sticky;
-    font-size: 8dvw;
-    opacity: 0;
-    max-height: 10dvh;
-    animation: bounceUp 2s infinite;
-    transition: opacity 0.3s ease-in-out;
-    user-select: none;
-}
-@media (max-width: 1024px) {
-    .scroll-hint {
-        font-size: 10dvw;
-        /* tablet */
-    }
-}
-@media (max-width: 768px) {
-    .scroll-hint {
-        font-size: 12dvw;
-        /* mobile */
-    }
-}
+/* --- Mobile Responsiveness --- */
 @media (max-width: 480px) {
-    .scroll-hint {
-        font-size: 10dvw;
-        /* small mobile */
+    .sticky-header {
+        position: sticky;
+        bottom: 0;
+        border-bottom: unset;
     }
-}
-
-.show {
-    opacity: 1;
-}
-
-/*Contact Styles*/
-#welcome {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    user-select: none;
-    transition: font-size 0.5s ease-in-out;
-}
-* {
-    transition: font-size 0.5s ease-in-out;
-}
-
-.hello-text {
-    display: flex;
-    align-items: right;
-    font-size: 7.5rem;
-    font-family: "Limelight";
-    font-optical-sizing: auto;
-    justify-content: right;
-    width: 100%;
-    font-weight: bolder;
-    letter-spacing: -6;
-}
-
-.name-container {
-    display: flex;
-    align-items: center;
-}
-
-.im-text {
-    font-size: 6.5rem;
-    line-height: 0.5;
-    font-family: "Jetbrains Mono";
-    letter-spacing: -29%;
-}
-
-.name-text {
-    font-size: 20rem;
-    font-weight: bold;
-    line-height: 0.4;
-    letter-spacing: -9%;
-}
-
-.subtitle {
-    font-size: 3rem;
-    margin-top: 5rem;
-}
-@media (max-width: 1024px) {
-    .hello-text {
-        display: flex;
-        align-items: right;
-        font-size: 12dvw;
-        font-family: "Limelight";
-        font-optical-sizing: auto;
-        justify-content: right;
-        width: 100%;
-        font-weight: bolder;
-        letter-spacing: -6;
+    .desktop {
+        display: none;
     }
-
-    .name-container {
+    .mobile {
         display: flex;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .logo.desktop {
+        display: none;
+    }
+    .logo.mobile {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+    .header-content {
         align-items: center;
-    }
-
-    .im-text {
-        font-size: 10dvw;
-        line-height: 0.5;
-        font-family: "Jetbrains Mono";
-        letter-spacing: -29%;
-    }
-
-    .name-text {
-        font-size: 32dvw;
-        font-weight: bold;
-        line-height: 0.4;
-        letter-spacing: -9%;
-    }
-    .subtitle {
-        font-size: 5dvw;
-        margin-top: 8dvw;
-    }
-}
-
-@keyframes bounceUp {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
     }
 }

@@ -1,82 +1,63 @@
 <!doctype html>
-<html>
+<html lang="id">
     <head>
-        <title>wlkmn</title>
-        <link rel="icon" href="favicon.svg" type="image/svg+xml" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="walkingman portofolio" />
-        <meta
-            name="keywords"
-            content="3d artist, character design, blender, walkingman, wlkmn, portofolio"
-        />
-        <meta name="author" content="wlkmn_32" />
-
-        <!-- Stylesheet -->
+        <title>Febrian - Portfolio</title>
         <link rel="stylesheet" href="styles.css" />
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Limelight&display=swap"
-            rel="stylesheet"
-        />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="wlkmn" />
-        <meta property="og:description" content="walkingman portofolio" />
-
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="wlkmn" />
-        <meta name="twitter:description" content="walkingman portofolio" />
     </head>
     <body>
-        <div id="loading">
-            <div class="loading-text">Loading...</div>
-        </div>
-        <div class="parent" id="parent">
-            <div class="page page1" id="contact">
-                <div class="page-content">
-                    <div id="welcome">
-                        <div class="hello-text">Hello,</div>
-                        <div class="im-text yellow">i'm</div>
-                        <div class="name-container">
-                            <br />
-                            <span class="name-text yellow">fe</span>
-                            <span class="name-text red">brian</span>
-                        </div>
-                        <div class="subtitle">a 3D artist.</div>
-                    </div>
-                </div>
-                <div class="captions">
-                    made with pure love ❤️, html, css and js :
-                    <a
-                        class="blue"
-                        href="https://github.com/wlkmn32/wlkmn32.github.io"
-                        >source code</a
-                    >
-                </div>
-                <div class="scroll-hint down show" data-page="0">
-                    <span class="yellow">hey!,</span>
-                    <span class="red">down</span> here.
-                </div>
-            </div>
-            <div class="page page2" id="portfolio">
-                <div class="scroll-hint up" data-page="1">
-                    <span class="yellow">contact?,</span>
-                    <span class="red">up</span> here.
-                </div>
-                <div class="page-content">To-do</div>
-            </div>
-        </div>
-        <div class="nav-indicator">
-            <div class="nav-dot nav-down active" data-page="0"></div>
-            <div class="nav-dot nav-up" data-page="1"></div>
-        </div>
+        <header class="sticky-header desktop">
+            <div class="container header-content">
+                <nav class="nav-links">
+                    <a href="#about">about me.</a>
+                    <a href="#timeline">timeline.</a>
+                    <a href="#projects">projects.</a>
+                </nav>
 
-        <script src="script.js"></script>
+                <div class="logo desktop">
+                    <span>wlkmn</span>
+                    <span>_32</span>
+                </div>
+            </div>
+        </header>
+        <div class="logo mobile">
+            <span>wlkmn</span>
+            <span>_32</span>
+        </div>
+        <main class="container">
+            <section class="aboutme">
+                <h1>hi, i'm febrian</h1>
+
+                <div class="content-text">
+                    <p>
+                        mainly focused on 3D art and animation. I use Blender as
+                        my primary tool for creating 3D models and animations. I
+                        also have experience in using other tools such as
+                        Affinity for graphic design and editing.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="container footer desktop">
+            <div class="social-links">
+                <a href="#">instagram</a>
+                <a href="#">sketchfab</a>
+                <a href="#">youtube</a>
+            </div>
+            <div class="copyright">
+                <small>muhammad rizqi febrian - 2025</small>
+            </div>
+        </footer>
+        <header class="sticky-header mobile">
+            <div class="container header-content">
+                <nav class="nav-links">
+                    <a href="#about">about me.</a>
+                    <a href="#timeline">timeline.</a>
+                    <a href="#projects">projects.</a>
+                </nav>
+            </div>
+        </header>
     </body>
 </html>
