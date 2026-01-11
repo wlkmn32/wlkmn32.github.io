@@ -19,7 +19,15 @@ function toggleGallery() {
   gallery.style.opacity = !isGalleryOpen ? "1" : "0";
   gallery.style.zIndex = !isGalleryOpen ? "8" : "-1";
   isGalleryOpen = !isGalleryOpen;
+  if (isGalleryOpen) {
+    window.history.pushState({ action: "gallery_open" }, "");
+  }
 }
+window.addEventListener("popstate", function (event) {
+  if (isGalleryOpen) {
+    toggleGallery();
+  }
+});
 landingPage = document.getElementById("landing-page-background");
 gallery.onclick = toggleGallery;
 landingPage.onclick = toggleGallery;
