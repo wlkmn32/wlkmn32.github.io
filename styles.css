@@ -2,16 +2,8 @@
 :root {
     --primary-color: #e53d00;
     --secondary-color: #71b6ff;
-    --text-color: #072642;
-    --background-color: #f4edda;
-}
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #e53d00;
-        --secondary-color: #71b6ff;
-        --text-color: #f4edda;
-        --background-color: #072642;
-    }
+    --text-color: #f4edda;
+    --background-color: #072642;
 }
 /* ICONS */
 .link {
