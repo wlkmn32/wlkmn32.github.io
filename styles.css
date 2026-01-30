@@ -121,7 +121,7 @@ footer {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-image: url("assets/bg.webp");
+    background-image: url("https://raw.githubusercontent.com/wlkmn32/wlkmn32.github.io/refs/heads/main/assets/bg.webp");
     background-size: cover;
     background-position: center;
 }
