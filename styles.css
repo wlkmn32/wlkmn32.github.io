@@ -78,6 +78,15 @@ header {
     mix-blend-mode: difference;
     color: var(--text-color);
 }
+header button {
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    transform: translateX(-300px) translateY(-15px);
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
 header img {
     width: auto;
     height: 2rem;
@@ -179,21 +188,19 @@ footer {
 }
 .gallery-content {
     break-inside: avoid;
-    min-height: 250px;
-    min-width: 200px;
-    margin-bottom: 16px;
+    min-width: 240px;
     border-radius: 8px;
-    overflow: hidden;
     width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #21212faa;
+    scale: 1;
     transition:
         background-color 0.2s ease-in-out,
+        scale 0.2s ease-in-out,
         color 0.2s ease-in-out,
         box-shadow 0.2s ease-in-out;
+}
+.gallery-content img {
+    object-fit: contain;
+    width: 100%;
 }
 .gallery-content-caption,
 .gallery-content-caption p {
@@ -204,10 +211,19 @@ footer {
 .gallery-content:hover {
     background-color: rgb(from var(--text-color) r g b / 0.2);
     box-shadow: 0 5px 12px rgb(from var(--secondary-color) r g b / 0.2);
+    scale: 1.05;
 }
 .gallery-content:active {
     background-color: rgb(from var(--primary-color) r g b / 0.4);
     box-shadow: 0 5px 12px rgb(from var(--primary-color) r g b / 0.6);
+    scale: 0.98;
+}
+.gallery-content-caption {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.gallery-content-caption:hover {
+    opacity: 1;
 }
 
 #loader-container {

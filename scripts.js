@@ -1,6 +1,7 @@
 gallery = document.getElementById("gallery");
 galleryTitle = document.getElementById("gallery-title");
 loaderContainer = document.getElementById("loader-container");
+closebutton = document.getElementById("gallery-close");
 isGalleryOpen = false;
 window.onload = function () {
   gallery.style.opacity = "0";
@@ -18,6 +19,9 @@ function toggleGallery() {
   galleryTitle.style.opacity = isGalleryOpen ? "0" : "1";
   gallery.style.opacity = !isGalleryOpen ? "1" : "0";
   gallery.style.zIndex = !isGalleryOpen ? "8" : "-1";
+  closebutton.style.transform = !isGalleryOpen
+    ? "translateX(0px) translateY(-15px)"
+    : "translateX(-300px) translateY(-15px)";
   isGalleryOpen = !isGalleryOpen;
   if (isGalleryOpen) {
     window.history.pushState({ action: "gallery_open" }, "");
@@ -29,5 +33,4 @@ window.addEventListener("popstate", function (event) {
   }
 });
 landingPage = document.getElementById("landing-page-background");
-gallery.onclick = toggleGallery;
 landingPage.onclick = toggleGallery;
