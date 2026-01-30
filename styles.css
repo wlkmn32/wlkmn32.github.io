@@ -83,9 +83,12 @@ header button {
     height: 1.5rem;
     width: 1.5rem;
     transform: translateX(-300px) translateY(-15px);
+    opacity: 0;
     border-radius: 2rem;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    transition:
+        transform 0.2s ease-in-out,
+        opacity 0.2s ease-in-out;
 }
 header img {
     width: auto;

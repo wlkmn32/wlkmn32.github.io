@@ -22,6 +22,7 @@ function toggleGallery() {
   closebutton.style.transform = !isGalleryOpen
     ? "translateX(0px) translateY(-15px)"
     : "translateX(-300px) translateY(-15px)";
+  closebutton.style.opacity = !isGalleryOpen ? "1" : "0";
   isGalleryOpen = !isGalleryOpen;
   if (isGalleryOpen) {
     window.history.pushState({ action: "gallery_open" }, "");
